@@ -17,7 +17,7 @@ const useApplicationData = function() {
       case SET_DAYS: 
         return {...state, days: action.value};
 
-      case SET_INTERVIEW:
+      case SET_INTERVIEW: //this dispatch for webSocket rendering
         const id = action.value.id
         const newInterview = action.value.interview;
         
@@ -26,17 +26,21 @@ const useApplicationData = function() {
         let dayBuffer = {...apptDay, spots:apptDay.spots};
         const apptBuffer = {...state.appointments[id]};
 
-        if(newInterview === null) {
+        if(newInterview === null) { //deleting: add spot
           dayBuffer = {...apptDay, spots:apptDay.spots+1};
-        } else if (!apptBuffer.interview) {
+        } else if (!apptBuffer.interview) { //adding: remove spot
           dayBuffer = {...apptDay, spots:apptDay.spots-1};
         }
+
+        //update daysBuffer
         const daysBuffer = [...state.days];
         daysBuffer[dayBuffer.id-1] = dayBuffer;
 
+        //update apptBuffer
         apptBuffer.interview = newInterview;
         const apptsBuffer = {...state.appointments, [id]:apptBuffer};
-
+        
+        //return updated state
         return {...state, appointments:apptsBuffer, days:daysBuffer};
 
       case SET_APPOINTMENTS:
