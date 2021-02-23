@@ -8,6 +8,7 @@ import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
 import {useVisualMode} from "hooks/useVisualMode";
+import { getByTestId } from "@testing-library/react";
 
 const classNames = require('classnames');
 
@@ -36,7 +37,7 @@ export default function Appointment(props) {
     interview, 
     interviewers, 
     bookInterview, 
-    removeInterview
+    removeInterview,
   } = props;
 
   const {mode, transition, back} = useVisualMode(interview ? SHOW : EMPTY);
@@ -76,7 +77,7 @@ export default function Appointment(props) {
   }
 
   return (
-    <article className={appointmentClass}>
+    <article className={appointmentClass} data-testid={"appointment"}>
       <Header
         time={time}
       />
