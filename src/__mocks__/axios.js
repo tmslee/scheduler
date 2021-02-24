@@ -55,7 +55,7 @@ const fixtures = {
 
 const getId = function (str) {
   const idx = str.lastIndexOf(`/`);
-  return str.substring(idx); 
+  return str.substring(idx+1); 
 }
 
 export default {
@@ -95,10 +95,11 @@ export default {
     });
   }),
 
-  // delete: jest.fn(url => {
-  //   fixtures.appointments[getId(url)].interview = null; 
-  //   return Promise.resolve({
-
-  //   });
-  // })
+  delete: jest.fn(url => {
+    fixtures.appointments[getId(url)].interview = null; 
+    return Promise.resolve({
+      status: 204,
+      statusText: "No Content"
+    });
+  })
 }
