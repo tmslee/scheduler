@@ -10,6 +10,8 @@ import reducer, {
   SET_APPLICATION_DATA
 } from "reducers/application";
 
+// axios.defaults.baseURL = "http://localhost:8001/";
+
 const useApplicationData = function() {
   
   const [state, dispatch] = useReducer(reducer, {
