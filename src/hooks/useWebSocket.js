@@ -13,7 +13,7 @@ const useWebSocket = function (dispatch) {
     }
     return () => {connection.close()};
   }
-  , []);
+  , [dispatch]);
 }
 
 export default useWebSocket;

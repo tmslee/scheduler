@@ -2,11 +2,8 @@ import {useReducer, useEffect} from "react";
 import axios from "axios";
 import useWebSocket from "./useWebSocket";
 import reducer, { 
-  SET_DAY,
   SET_DAYS,
   SET_APPOINTMENTS,
-  SET_INTERVIEW,
-  SET_INTERVIEWERS,
   SET_APPLICATION_DATA
 } from "reducers/application";
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import "components/Appointment/styles.scss";
 import Header from "./Header";
 import Show from "./Show";
@@ -8,7 +8,6 @@ import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
 import {useVisualMode} from "hooks/useVisualMode";
-import { getByTestId } from "@testing-library/react";
 
 const classNames = require('classnames');
 
