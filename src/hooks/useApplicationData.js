@@ -21,9 +21,9 @@ const useApplicationData = function() {
 
   useEffect(() => {
     Promise.all([
-      axios.get(`http://localhost:8001/api/days`),
-      axios.get(`http://localhost:8001/api/appointments`),
-      axios.get(`http://localhost:8001/api/interviewers`)
+      axios.get(`/api/days`),
+      axios.get(`/api/appointments`),
+      axios.get(`/api/interviewers`)
     ])
     .then(output => {
       const days = output[0].data;
@@ -60,7 +60,7 @@ const useApplicationData = function() {
       ...state.appointments,
       [id]: appointment
     }
-    return axios.put(`http://localhost:8001/api/appointments/${id}`, {...appointment})
+    return axios.put(`/api/appointments/${id}`, {...appointment})
     .then(res => {
       dispatch({type: SET_APPOINTMENTS, value: appointments});
       updateDay(-1, state.day, false, isNew);
@@ -76,7 +76,7 @@ const useApplicationData = function() {
       ...state.appointments,
       [id]: appointment
     }
-    return axios.delete(`http://localhost:8001/api/appointments/${id}`)
+    return axios.delete(`/api/appointments/${id}`)
     .then(res => {
       dispatch({type: SET_APPOINTMENTS, value: appointments});
       updateDay(1, state.day, true);
