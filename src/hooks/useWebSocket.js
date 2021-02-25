@@ -1,4 +1,8 @@
 import {useEffect} from "react";
+import React from "react";
+import ReactDOM from "react-dom";
+
+import "index.scss";
 
 const useWebSocket = function (dispatch) {
   useEffect(() => {
