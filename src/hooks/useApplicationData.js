@@ -11,6 +11,13 @@ import reducer, {
 } from "reducers/application";
 
 // axios.defaults.baseURL = "http://localhost:8001/";
+if (process.env.REACT_APP_API_BASE_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+} else {
+  axios.defaults.baseURL = "http://localhost:8001/";
+}
+
+console.log(axios.defaults.baseURL);
 
 const useApplicationData = function() {
   

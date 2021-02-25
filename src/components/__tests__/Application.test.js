@@ -3,7 +3,7 @@ import React from "react";
 import { render, cleanup, waitForElement, getByText, prettyDOM, getAllByTestId, getByAltText, getByPlaceholderText, queryByText, queryByAltText } from "@testing-library/react";
 import Application from "components/Application";
 import { fireEvent } from "@testing-library/react/dist";
-import axios from "axios";
+import axios from "../../__mocks__/axios";
 
 afterEach(cleanup);
 
